@@ -1,0 +1,41 @@
+﻿@using System.Globalization
+@{
+    var userNameList = (IList<string>)Model.Users;
+    var currentUserName = WorkContext.CurrentUser.UserName;
+}
+<style>
+    .ifle-switch-user 
+    {
+        float: right;
+        margin: 10px 20px 0 0;
+    }
+    .dir-rtl .ifle-switch-user 
+    {
+        float: left;
+        margin: 10px 0 0 20px ;
+    }
+</style>
+<div class="ifle-switch-user">
+    <select id="ifleSwitchUserCombo">
+        @foreach (var name in userNameList)
+        {
+            var url = Url.Action("Index", "AdminSwitchUser", new { area = "IFle.Orchard.SwitchUser", userName = name, returnUrl = Html.ViewContext.HttpContext.Request.RawUrl });
+
+            <option @if (name.Equals(currentUserName)) { <text> selected="selected" </text>   } value="@url">
+                @name&#x200E;
+            </option>
+        }
+    </select>
+</div>
+@using (Script.Foot())
+{
+    <script type="text/javascript">
+//<![CDATA[
+   (function ($) {
+       $("#ifleSwitchUserCombo").change(function (e) {
+           window.location = $("#ifleSwitchUserCombo > option:selected")[0].value;
+       });
+   })(jQuery);
+//]]>
+    </script>
+}
