@@ -1,7 +1,7 @@
 ﻿Name: Switch User
 AntiForgery: enabled
 Author: ifle
-Website: http://orchardproject.net
+Website: https://github.com/ifle/Orchard-Switch-User.git
 Version: 1.0
 OrchardVersion: 1.10
 Description: Allows to switch users and surf the site as that user.
@@ -9,5 +9,5 @@ Features:
     IFle.Orchard.SwitchUser:
         Name: Switch User
         Description: Allows to switch users and surf the site as that user.
-        Category: Developer
-		Dependencies: Orchard.Users
+        Category: Security
+		Dependencies: Orchard.Users, Orchard.Roles

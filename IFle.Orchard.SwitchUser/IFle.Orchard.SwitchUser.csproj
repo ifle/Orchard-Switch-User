@@ -86,6 +86,10 @@
       <Name>Orchard.Core</Name>
       <Private>false</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Orchard.Roles\Orchard.Roles.csproj">
+      <Project>{D10AD48F-407D-4DB5-A328-173EC7CB010F}</Project>
+      <Name>Orchard.Roles</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Orchard.Users\Orchard.Users.csproj">
       <Project>{79AED36E-ABD0-4747-93D3-8722B042454B}</Project>
       <Name>Orchard.Users</Name>
@@ -103,7 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AdminSwitchUserController.cs" />
-    <Compile Include="Services\AdminSwitchUserFactory.cs" />
+    <Compile Include="Handlers\SwitchUserEventHandler.cs" />
+    <Compile Include="Services\AdminSwitchUserShapeDisplayEvents.cs" />
+    <Compile Include="Services\PermissionService.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
